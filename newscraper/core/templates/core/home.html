@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/core/style.css' %}">
+</head>
+<body>
+<div id="main">
+    <h1>Find the Tech News</h1>
+    <form method="GET">
+        <label for="new"></label>
+        <input type="text" name="new" id="new" value="{{ request.GET.new }}" placeholder="news...">
+        <input type="submit" value="Submit">
+    </form>
+    {% if new %}
+    <h1>Header</h1>
+    <h3>{{new.header}}</h3>
+    <h1>Article</h1>
+    <h3>{{new.text}}</h3>
+    <h3><a href="{{new.link}}">link</a></h3>
+    <h3>{{new.author}}</h3>
+    <h3>{{new.date}}</h3>
+
+    <h3>{{new.header}}</h3>
+    <h3><a href="{{new.link}}">link</a></h3>
+    <h3>{{new.text}}</h3>
+    <h3>{{new.author}}</h3>
+    <h3>{{new.date}}</h3>
+    {% endif %}
+</div>
+</body>
+</html>
